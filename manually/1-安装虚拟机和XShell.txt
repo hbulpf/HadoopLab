@@ -1,0 +1,5 @@
+安装Vmware或VirtualBox。Vmware，收费产品，占内存较大。Oracle的VirtualBox，开源产品，占内存较小。
+可选用选VirtualBox。
+
+Xshell教育版下载地址：[需用自己的邮箱注册，取到lisence]
+https://www.netsarang.com/download/down_form.html?code=522

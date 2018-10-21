@@ -1,0 +1,34 @@
+#1.首先用root用户登陆，输入root的密码，命令：
+	su
+#2.编辑interfaces文件，命令：
+	vim /etc/network/interfaces
+#3.添加以下内容进去，命令：
+-------------------配置内容------------------
+# The primary network interface
+auto enp0s3
+iface enp0s3inet static
+address 192.168.199.120
+netmask 255.255.255.0
+gateway 192.168.199.1
+-----------------------------------------------	
+#4.配置DNS解析，命令：
+	vim /etc/resolv.conf
+-------------------配置内容------------------
+nameserver 202.116.32.254
+nameserver 114.114.114.114
+-----------------------------------------------		
+#5.改完上面，如果重启的话，还是会变为原来的样子，所以要让其永久改变，命令：
+	vim /etc/resolvconf/resolv.conf.d/base
+-------------------配置内容------------------
+nameserver 202.116.32.254
+nameserver 114.114.114.114
+-----------------------------------------------			
+#6.重启网卡,命令：
+	sudo /etc/init.d/networking restart
+#7.测试
+#ping 网关
+	ping 192.168.199.1
+#ping 百度的服务器ip
+	ping 14.215.177.37
+#ping 百度域名
+	ping www.baidu.com

@@ -1,0 +1,15 @@
+--------------------------在ubuntu上安装一些必备的软件:vim\ssh\lrzsz--------------------------
+#安装vim,执行：
+	sudo apt-get install vim
+#安装ssh,执行：
+	sudo apt-get install ssh
+#安装lrzsz,执行：
+	sudo apt-get install lrzsz
+#查看ssh状态,执行：
+	service ssh status
+#如果ssh关闭使用,开启ssh服务,执行：
+	service ssh start
+--------------------------在Windows上安装一些必备的软件:winSCP、putty、vncviewer--------------------------
+#winSCP用于向ubuntu传输文件
+#putty用于在命令行下远程登录ubuntu
+#vncviewer用于在桌面下远程登录ubuntu

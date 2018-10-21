@@ -1,0 +1,17 @@
+#1.生成密钥
+	ssh-keygen -t rsa
+#2.打开~/.ssh 下面有三个文件
+authorized_keys(已认证的keys)，id_rsa（私钥），id_rsa.pub（公钥 ）
+#如果没有authorized_keys，生成authorized_keys。命令:
+	touch authorized_keys
+#3.在master上将公钥放到authorized_keys里。命令：
+	sudo cat id_rsa.pub >> authorized_keys
+#4.修改authorized_keys权限，命令：
+	chmod 644 authorized_keys
+#5.将master上的公钥放到其他节点的authorized_keys中。
+#6.修改authorized_keys权限，命令：
+	chmod 644 authorized_keys
+#7.测试是否成功
+	ssh slave1
+输入用户名密码，然后退出，再次ssh slave1不用密码，直接进入系统。这就表示成功了。
+测试成功后，按照此法，配置其他slave节点。

@@ -1,0 +1,19 @@
+1.下载jdk1.8 
+     下载地址：http://www.oracle.com/technetwork/cn/java/javase/downloads/jdk8-downloads-2133151-zhs.html 
+2. 解压JDK
+	sudo tar zxvf jdk-8u31-linux-x64.tar.gz  
+3.设置环境变量（全局）
+	sudo vim  /etc/profile
+打开profile文件输入
+-------------------显示信息------------------
+	export JAVA_HOME=/opt/jdk1.8.0_131 
+	export CLASSPATH=".:$JAVA_HOME/lib:$CLASSPATH"  
+	export PATH="$JAVA_HOME/bin:$PATH"  
+-----------------------------------------------	
+4.设置系统默认JDK
+	sudo update-alternatives --install /usr/bin/java java /opt/jdk1.8.0_131/bin/java 300  
+	sudo update-alternatives --install /usr/bin/javac javac /opt/jdk1.8.0_131/bin/javac 300
+	sudo update-alternatives --config java  
+5. 验证JDK,输入命令
+	java -version 
+见到JDK的信息则表示成功。

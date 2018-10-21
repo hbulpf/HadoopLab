@@ -1,0 +1,113 @@
+#1. 通过winSCP，上传hadoop，到/usr/local/下，解压缩
+	tar -zxvf hadoop1.2.1.tar -C /usr/local/
+#2.再重命名一下,这样目录就变成/usr/local/hadoop
+	sudo mv hadoop1.2.1 hadoop 
+
+#①修改环境变量，将hadoop加进去（最后四个linux都操作一次）
+	sudo vim ~/.bashrc
+#   	-------------------config content------------------
+		export HADOOP_HOME=/usr/local/hadoop
+		export PATH="$JAVA_HOME/bin:$HADOOP_HOME/bin:$PATH"
+#		---------------------------------------------------
+#修改完后，用source ~/.bashrc让配置文件生效。
+	source ~/.bashrc
+#②修改/usr/local/hadoop/conf下配置文件
+   sudo vim /usr/local/hadoop/conf/hadoop-env.sh
+#   	-------------------显示信息------------------
+		export JAVA_HOME=/usr/lib/java/jdk1.8.0_131 
+#		-----------------------------------------------
+   sudo vim /usr/local/hadoop/conf/core-site.xml
+#   	-------------------显示信息------------------
+		<configuration>
+			<property>
+				<name>fs.default.name</name>
+				<value>hdfs://master:9000</value>
+			</property>
+		</configuration>
+#		---------------------------------------------------
+   sudo vim /usr/local/hadoop/conf/hdfs-site.xml
+#   	-------------------显示信息------------------
+		<configuration>
+			<property>
+				<name>dfs.replication</name>
+				<value>2</value>
+			</property>
+			<property>
+				<name>heartbeat.recheckinterval</name>
+				<value>10</value>
+			</property>
+			<property>
+				<name>dfs.name.dir</name>
+				<value>/usr/local/hadoop/hdfs/name</value>
+			</property>	
+			<property>
+				<name>dfs.data.dir</name>
+				<value>/usr/local/hadoop/hdfs/data</value>
+			</property>		
+			<property>
+				<name>hadoop.tmp.dir</name>
+				<value>/usr/local/hadoop/tmp</value>
+			</property>					
+		</configuration>
+#		---------------------------------------------------
+   sudo vim /usr/local/hadoop/conf/mapred-site.xml
+#   	-------------------显示信息------------------
+		<configuration>
+			<property>
+				<name>mapred.job.tracker</name>
+				<value>master:9001</value>
+			</property>			
+		</configuration>
+#		---------------------------------------------------   
+#修改master文件
+	sudo vim /usr/local/hadoop/conf/masters
+#   	-------------------显示信息------------------
+#		master
+#		---------------------------------------------------   	
+#修改slave文件
+	sudo vim /usr/local/hadoop/conf/slaves	
+#   	-------------------配置内容-------------------------
+		slave1
+		slave2
+		slave3
+#		---------------------------------------------------   		
+#上面的hadoop-env.sh，core-site.xml，mapred-site.xml，hdfs-site.xml，master，slave几个文件，在四台linux中都是一样的。
+#配置完一台电脑后，可以将hadoop包，直接拷贝到其他电脑上。
+③将hadoop的用户加进去
+#创建组 hadoop ,并将用户 lipengfei 加入hadoop组中
+	sudo groupadd -g 888 hadoop
+	sudo gpasswd -a lipengfei hadoop
+	
+#修改/usr/local/hadoop/tmp的权限
+	chown -R lipengfei:hadoop /usr/local/hadoop/tmp
+	sudo chmod -R a+w /usr/local/hadoop
+#④让hadoop配置生效
+	source /usr/local/hadoop/conf/hadoop-env.sh
+#⑤在master节点上格式化namenode
+	hadoop namenode -format
+#⑥启动hadoop程序,切换到 /usr/local/hadoop/bin/下
+	/usr/local/hadoop/bin/start-all.sh
+#⑦查看进程，是否启动
+	jps
+#master节点显示信息：ch
+	-------------------显示信息-------------------------
+	11290 Jps
+	11195 JobTracker
+	10924 NameNode
+	11119 SecondaryNameNode
+	---------------------------------------------------  
+slave1节点显示信息：
+	-------------------显示信息-------------------------
+	2440 TaskTracker
+	2345 DataNode
+	3149 Jps
+	---------------------------------------------------
+slave2，slave3显示结果与host2相同。
+
+
+#其他使用
+#启动hadoop
+	/usr/local/hadoop/bin/start-all.sh
+
+#停止hadoop
+	/usr/local/hadoop/bin/stop-all.sh
