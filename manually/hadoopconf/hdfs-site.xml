@@ -17,16 +17,27 @@
 <!-- Put site-specific property overrides in this file. -->
 
 <configuration>
-    <property>
-       <name>dfs.replication</name>
-       <value>3</value>
+   <property>
+        <name>dfs.namenode.name.dir</name>
+        <value>file:/data/hd2.7/hdfs/name</value>
+        <description> namenode 用来持续存放命名空间和交换日志的本地文件系统路径 </description> 
     </property>
     <property>
-       <name>dfs.namenode.name.dir</name>
-       <value>/data/hd3/namenode</value>
+        <name>dfs.datanode.data.dir</name>
+        <value>file:/data/hd2.7/hdfs/data</value>
+        <description> DataNode 在本地存放块文件的目录列表，用逗号分隔 </description> 
     </property>
     <property>
-       <name>dfs.datanode.data.dir</name>
-       <value>/data/hd3/datanode</value>
+        <name>dfs.replication</name>
+        <value>2</value>
+        <description> 设定 HDFS 存储文件的副本个数，默认为3 </description>
+    </property>
+    <property>
+        <name>dfs.webhdfs.enabled</name>
+        <value>true</value>
+    </property>
+    <property>
+        <name>dfs.permissions</name>
+        <value>false</value>
     </property>
 </configuration>

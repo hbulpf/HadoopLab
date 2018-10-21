@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
 <!--
   Licensed under the Apache License, Version 2.0 (the "License");
@@ -17,16 +17,22 @@
 <!-- Put site-specific property overrides in this file. -->
 
 <configuration>
-    <property>
-       <name>mapreduce.framework.name</name>
-       <value>yarn</value>
-    </property>
-    <property>
-        <name>yarn.nodemanager.aux-services</name>
-        <value>mapreduce_shuffle</value>
-    </property>
-    <property>
-        <name>yarn.nodemanager.aux-services.mapreduce.shuffle.class</name>
-        <value>org.apache.hadoop.mapred.ShuffleHandler</value>
-    </property>
+	<property>
+		<name>fs.defaultFS</name>
+    <value>hdfs://ceph-rc-1:9000</value>
+	</property>
+  <property>
+          <name>io.file.buffer.size</name>
+          <value>131072</value>
+  <description> 设置缓存大小 </description>
+  </property>
+  <property>
+           <name>hadoop.tmp.dir</name>
+           <value>file:/data/hd2.7/tmp</value>
+           <description> 存放临时文件的目录 </description>
+  </property> 
+  <property>
+      <name>hadoop.security.authorization</name>
+      <value>false</value>
+  </property>  
 </configuration>
