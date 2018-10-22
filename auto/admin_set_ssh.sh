@@ -7,6 +7,7 @@ rm -rf ~/.ssh/config
 
 set -x
 set -v
+touch ~/.ssh/config
 while read line
 do
     host=`echo $line | awk '{print $1}'`
