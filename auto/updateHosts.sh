@@ -10,5 +10,7 @@ cat >>/etc/hosts <<EOM
 139.199.190.25  xiaohong    
 139.199.196.253 nfs_linjing nfs.hnbd.cn
 193.112.214.70  pengcheng   
+192.168.13.25  pxw501-25    50125.hnbd.cn
+192.168.13.26  pxw501-26    50126.hnbd.cn
 EOM
 cat /etc/hosts

@@ -19,7 +19,7 @@
 <configuration>
 	<property>
 		<name>fs.defaultFS</name>
-    <value>hdfs://hp_m_chunli:9000</value>
+    <value>hdfs://pxw501-25:9000</value>
 	</property>
   <property>
           <name>io.file.buffer.size</name>
@@ -35,8 +35,4 @@
       <name>hadoop.security.authorization</name>
       <value>false</value>
   </property>  
-  <property>
-  <name>fs.default.name</name>
-  <value>hdfs://127.0.0.1:9000</value>
-  </property>
 </configuration>

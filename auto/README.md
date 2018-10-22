@@ -24,7 +24,9 @@ hp_s2_bowei a13610025993
 sh admin_set_ssh.sh
 ```
 
-4. 启动 hadoop 集群
+4. 修改 `config` 目录下 `hadoop` 的配置文件，如果无需额外配置，只需要替换 master 节点别名
+
+5. 启动 hadoop 集群
 在master节点运行
 ```
 sh test_hadoop.sh
