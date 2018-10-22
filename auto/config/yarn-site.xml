@@ -23,22 +23,22 @@
         </property>
         <property>
                <name>yarn.resourcemanager.address</name>
-               <value>ceph-rc-1:8032</value>
+               <value>hp_m_chunli:8032</value>
        </property>
        <property>
                <name>yarn.resourcemanager.scheduler.address</name>
-               <value>ceph-rc-1:8030</value>
+               <value>hp_m_chunli:8030</value>
        </property>
        <property>
             <name>yarn.resourcemanager.resource-tracker.address</name>
-             <value>ceph-rc-1:8031</value>
+             <value>hp_m_chunli:8031</value>
       </property>
       <property>
               <name>yarn.resourcemanager.admin.address</name>
-               <value>ceph-rc-1:8033</value>
+               <value>hp_m_chunli:8033</value>
        </property>
        <property>
                <name>yarn.resourcemanager.webapp.address</name>
-               <value>ceph-rc-1:8088</value>
+               <value>hp_m_chunli:8088</value>
        </property>
 </configuration>

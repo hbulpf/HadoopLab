@@ -19,7 +19,7 @@
 <configuration>
 	<property>
 		<name>fs.defaultFS</name>
-    <value>hdfs://ceph-rc-1:9000</value>
+    <value>hdfs://hp_m_chunli:9000</value>
 	</property>
   <property>
           <name>io.file.buffer.size</name>

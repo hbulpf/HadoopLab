@@ -1,4 +1,5 @@
 #!/bin/bash
+./install_nfs_client.sh
 # install openssh-server, openjdk and wget
 yum update && yum install -y openssh-server java-1.8.0-openjdk-devel wget
 
