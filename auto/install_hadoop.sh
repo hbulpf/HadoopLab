@@ -1,3 +1,4 @@
+#!/bin/bash
 # install openssh-server, openjdk and wget
 yum update && yum install -y openssh-server java-1.8.0-openjdk-devel wget
 
@@ -32,9 +33,3 @@ mkdir -p /data/hd2.7/hdfs/name && mkdir -p /data/hd2.7/hdfs/data && \
 unalias cp
 cp -rf /nfs_mirrors/hadoop/config/* $HADOOP_HOME/etc/hadoop/
 alias cp='cp -i'
-
-# 测试 hadoop 集群
-$HADOOP_HOME/bin/hadoop namenode -format
-$HADOOP_HOME/bin/hadoop datanode -format
-$HADOOP_HOME/sbin/start-all.sh
-jps
