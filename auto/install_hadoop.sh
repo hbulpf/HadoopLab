@@ -35,5 +35,5 @@ mkdir -p /data/hd2.7/hdfs/name && mkdir -p /data/hd2.7/hdfs/data && \
     mkdir -p /data/hd2.7/tmp && mkdir $HADOOP_HOME/logs
 
 unalias cp
-cp -rf /nfs_mirrors/hadoop/config/* $HADOOP_HOME/etc/hadoop/
+cp -rf ./config/* "$HADOOP_HOME/etc/hadoop/"
 alias cp='cp -i'
