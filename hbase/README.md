@@ -1,6 +1,11 @@
-# HBase系统自动部署搭建
+# HBase 系统自动部署搭建
 0. 先安装好Hadoop
-1. 运行下面的命令设置环境变量
+1. 在所有节点上,安装 HBase 运行如下命令
+```
+chmod a+x install_hbase.sh
+./install_hbase.sh
+```
+2. 运行下面的命令设置环境变量
 ```
 # set environment variable
 cat <<EOF >>/etc/profile
@@ -18,21 +23,16 @@ cp -rf ./conf/* "$HBASE_HOME/conf/"
 alias cp='cp -i'
 ```
 
-3. master节点免ssh验证登陆到其他节点
-修改 `name_pwd` 文件，填入主机别名和主机的root密码(为了安全考虑，集群建好后可以将这个文件备份在其他地方，然后将该文件删除)。
-在 master 节点上运行
-```
-sh admin_set_ssh.sh
-```
-
-4. 修改 `config` 目录下 `hadoop` 的配置文件，如果无需额外配置，只需要替换 master 节点别名
-
-5. 启动 hadoop 集群
+3. 启动 HBase 集群
 在master节点运行
 ```
-$HADOOP_HOME/bin/hadoop namenode -format
-$HADOOP_HOME/bin/hadoop datanode -format
-$HADOOP_HOME/sbin/start-dfs.sh
-$HADOOP_HOME/sbin/start-yarn.sh
-jps
+$HBASE_HOME/bin/start-hbase.sh
 ```
+
+4. http 网页访问
+ - [访问 Hbase Master http页面,http://master:60010](http://50125.hnbdata.cn:60010)
+ - [访问 Hbase RegionServer http页面,http://regionServe1:60030](http://50126.hnbdata.cn:60030)
+
+# 参考
+1. [hbase下载 . http://hbase.apache.org/downloads.html](http://hbase.apache.org/downloads.html)
+2. [Apache HBase 中文参考指南 . http://abloz.com/hbase/book.html#confirm](http://abloz.com/hbase/book.html#confirm)

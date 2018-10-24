@@ -56,3 +56,13 @@ $HADOOP_HOME/sbin/start-dfs.sh
 $HADOOP_HOME/sbin/start-yarn.sh
 jps
 ```
+
+6. http 网页访问
+ - [访问 Hadoop NameNode http页面,http://master:50070](http://50125.hnbdata.cn:50070)
+ - [访问 Hadoop ResourceManager http页面,http://master:8088](http://50125.hnbdata.cn:8088/)
+ - [访问 Hadoop DataNode http页面,http://slave1:50075](http://50126.hnbdata.cn:50075/)
+
+
+# 参考
+1. [hbase下载 . http://hbase.apache.org/downloads.html](http://hbase.apache.org/downloads.html)
+2. [Apache HBase 中文参考指南 . http://abloz.com/hbase/book.html#confirm](http://abloz.com/hbase/book.html#confirm)
