@@ -1,8 +1,6 @@
-# build_hadoop
-# hadoop系统 自动部署搭建
-```
-cd ./hadoop_auto/ && \
- chmod a+x install_hadoop.sh install_nfs_client.sh test_hadoop.sh && \
- sh install_hadoop.sh
-```
+# 搭建大数据系统
+# 1. Hadoop HDFS
+ 1. [hadoop系统 自动部署搭建](./hadoop_auto/)
 
+# 2. HBase
+ 1. [HBase 系统 自动部署搭建](./hbase/)

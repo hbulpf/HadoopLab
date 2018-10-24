@@ -37,3 +37,18 @@ $HBASE_HOME/bin/start-hbase.sh
 # 参考
 1. [hbase下载 . http://hbase.apache.org/downloads.html](http://hbase.apache.org/downloads.html)
 2. [Apache HBase 中文参考指南 . http://abloz.com/hbase/book.html#confirm](http://abloz.com/hbase/book.html#confirm)
+
+# 常见问题
+1. HBase 与 Hadoop 的 jar 包冲突,如下
+错误如下；
+```
+SLF4J: Class path contains multiple SLF4J bindings.
+SLF4J: Found binding in [jar:file:/usr/local/hadoop/hbase-2.0.2/lib/slf4j-log4j12-1.7.25.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/usr/local/hadoop/hadoop-2.7.7/share/hadoop/common/lib/slf4j-log4j12-1.7.10.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
+```
+解决办法:
+将HBase的jar包修改名称(最好不要删除)
+```
+mv usr/local/hadoop/hbase-2.0.2/lib/slf4j-log4j12-1.7.25.jar /usr/local/hadoop/hbase-2.0.2/lib/slf4j-log4j12-1.7.25.jar-bak
+```
