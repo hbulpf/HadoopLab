@@ -13,6 +13,7 @@ export HBASE_HOME="/usr/local/hadoop/hbase-2.0.2"
 export PATH="$PATH:$HBASE_HOME/bin"
 EOF
 source /etc/profile
+
 # set hbase config
 cat <<EOF >>$HBASE_HOME/conf/hbase-env.sh
 JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.181-3.b13.el7_5.x86_64

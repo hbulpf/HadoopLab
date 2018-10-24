@@ -66,3 +66,4 @@ jps
 # 参考
 1. [hbase下载 . http://hbase.apache.org/downloads.html](http://hbase.apache.org/downloads.html)
 2. [Apache HBase 中文参考指南 . http://abloz.com/hbase/book.html#confirm](http://abloz.com/hbase/book.html#confirm)
+3. [hadoop2.x常用端口及定义方法 . https://www.cnblogs.com/cxzdy/articles/4465472.html]()
