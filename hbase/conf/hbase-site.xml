@@ -21,5 +21,9 @@
  */
 -->
 <configuration>
-
+    <property>
+        <name>hbase.tmp.dir</name>
+        <value>file:///data/hbase2.0.2/tmp</value>
+        <description> HBase的临时目录 </description> 
+    </property>
 </configuration>
