@@ -1,5 +1,5 @@
 #!/bin/bash
-yum install -y sshpass
+#yum install -y sshpass
 ssh-keygen -t rsa -N '' -f ~/.ssh/id_rsa
 cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys && chmod 644 ~/.ssh/authorized_keys
 #在admin节点上设置ssh登录信息
