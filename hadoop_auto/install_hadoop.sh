@@ -11,3 +11,8 @@ cd /tmp && \
 # chmod a+x install_nfs_client.sh && ./install_nfs_client.sh
 # mkdir -p /usr/local/hadoop && \
 #     tar -xvzf /nfs_mirrors/hadoop/hadoop-2.7.7.tar.gz -C /usr/local/hadoop
+
+useradd -d /home/hadoop -m hadoop
+echo 'hadoop' | passwd --stdin hadoop
+usermod -aG hadoop hadoop
+chown -R hadoop:hadoop /usr/local/hadoop/hadoop-2.7.7

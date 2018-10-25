@@ -15,7 +15,7 @@ do
     printf "Host $host\n\tHostname  $host\n\tUser root\n" >> ~/.ssh/config  #向~/.ssh/config集群主机密钥配置
     #拷贝ceph-rc-1的密钥到其他节点，如果使用的是非root用户，在操作过程中，当需要root权限时会提示输入用户密码，这里使用root用户
     echo "sshpass -p $key ssh-copy-id -i ~/.ssh/id_rsa.pub root@$host" #向其他主机传输密钥
-    sshpass -p $key ssh-copy-id -i ~/.ssh/id_rsa.pub root@$host #向其他主机传输密钥
+    sshpass -p $key ssh-copy-id -i ~/.ssh/id_rsa.pub hadoop@$host #向其他主机传输密钥
 done < name_pwd
 set +x
 set +v
