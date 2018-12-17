@@ -1,4 +1,5 @@
 # hadoop系统自动部署搭建
+
 1. 在所有节点上修改hosts:   
 修改 `updateHosts.sh` 中的主机名和IP为本地 hadoop 集群的主机名和IP，然后运行：
 ```
@@ -38,14 +39,17 @@ cp -rf ./config/* "$HADOOP_HOME/etc/hadoop/"
 alias cp='cp -i'
 ```
 
-3. master节点免ssh验证登陆到其他节点
+修改 `config` 目录下 `hadoop` 的配置文件，如果无需额外配置，只需要替换 master 节点别名,并将修改好的 `config` 目录下的文件拷贝到服务器hadoop的安装目录下。
+```
+cp -r ./config/* $HADOOP_HOME/etc/hadoop
+```
+
+4. master节点免ssh验证登陆到其他节点
 修改 `name_pwd` 文件，填入主机别名和主机的root密码(为了安全考虑，集群建好后可以将这个文件备份在其他地方，然后将该文件删除)。
-在 master 节点上运行
+`su hadoop`切换到 hadoop 用户下， 在 master 节点上运行
 ```
 sh admin_set_ssh.sh
 ```
-
-4. 修改 `config` 目录下 `hadoop` 的配置文件，如果无需额外配置，只需要替换 master 节点别名
 
 5. 启动 hadoop 集群
 在master节点运行
@@ -58,9 +62,10 @@ jps
 ```
 
 6. http 网页访问
- - [访问 Hadoop NameNode http页面,http://master:50070](http://50125.hnbdata.cn:50070)
- - [访问 Hadoop ResourceManager http页面,http://master:8088](http://50125.hnbdata.cn:8088/)
- - [访问 Hadoop DataNode http页面,http://slave1:50075](http://50126.hnbdata.cn:50075/)
+ - [访问 Hadoop NameNode http页面, http://master:50070](http://50125.hnbdata.cn:50070)
+ - [访问 Hadoop ResourceManager http页面, http://master:8088](http://50125.hnbdata.cn:8088/)
+ - [访问 pxw501-26 Hadoop DataNode http页面, http://50126.hnbdata.cn:50075/](http://50126.hnbdata.cn:50075/)
+ - [访问 pxw501-25 Hadoop DataNode http页面, http://50125.hnbdata.cn:50075/](http://50125.hnbdata.cn:50075/)
 
 
 # 参考
