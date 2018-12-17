@@ -39,10 +39,10 @@ cp -rf ./config/* "$HADOOP_HOME/etc/hadoop/"
 alias cp='cp -i'
 ```
 
-    修改 `config` 目录下 `hadoop` 的配置文件，如果无需额外配置，只需要替换 master 节点别名,并将修改好的 `config` 目录下的文件拷贝到服务器hadoop的安装目录下。
-    ```
-    cp -r ./config/* $HADOOP_HOME/etc/hadoop
-    ```
+修改 `config` 目录下 `hadoop` 的配置文件，如果无需额外配置，只需要替换 master 节点别名,并将修改好的 `config` 目录下的文件拷贝到服务器hadoop的安装目录下。
+```
+cp -r ./config/* $HADOOP_HOME/etc/hadoop
+```
 
 4. master节点免ssh验证登陆到其他节点
 修改 `name_pwd` 文件，填入主机别名和主机的root密码(为了安全考虑，集群建好后可以将这个文件备份在其他地方，然后将该文件删除)。<br>
