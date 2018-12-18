@@ -9,14 +9,15 @@ Spark | 1.5.2
 
 服务器 | 服务角色 | 服务组件
 ----- | ----- | ----- 
-501-25  | hadoop master , hadoop slave ,  hbase master ,spark master,worker| NameNode , DataNode , SecondaryNameNode , NodeManager , ResourceManager
-501-26  | hadoop slave , hbase RegionServer , spark worker | DataNode , NodeManager
+501-25  | Hadoop master , Hadoop slave <br>  HBase master <br>  Spark master, Spark worker| NameNode , DataNode , SecondaryNameNode , NodeManager , ResourceManager
+501-26  | Hadoop slave <br> HBase RegionServer <br>  Spark worker | DataNode , NodeManager
 
 
-# 1. Hadoop HDFS
- 1. [hadoop系统 自动部署搭建](./hadoop_auto/)
+# 1. Hadoop 
+ 1. [Hadoop 自动部署搭建](./hadoop_auto/)
 
 # 2. HBase
  1. [HBase 系统 自动部署搭建](./hbase/)
 
 # 3. Spark
+ 1. [Spark 系统 部署搭建](./spark/)

@@ -1,53 +1,70 @@
-# spark系统手动搭建说明
+# 手动搭建Spark
 
-1. 安装scala:  
-tar -zxvf scala-2.10.6.tgz
-mv scala-2.10.6 /usr/local/
-2. 修改scala环境变量
-vi /etc/profile
+1. 下载安装scala和spark:  
+    下载安装scala
 ```
-export SCALA_HOME=/usr/local/hadoop/scala-2.10.6
-export PATH=$PATH:$SCALA_HOME/bin
+if [ ! -f /download/scala-2.10.6.tgz ]; then wget -O /download/scala-2.10.6.tgz http://downloads.lightbend.com/scala/2.10.6/scala-2.10.6.tgz ; fi
+tar -zxvf /download/scala-2.10.6.tgz -C /usr/local/hadoop/
+```
+
+    下载安装spark:
+```
+if [ ! -f /download/spark-1.5.2-bin-hadoop2.6.tgz ]; then wget -O /download/spark-1.5.2-bin-hadoop2.6.tgz http://archive.apache.org/dist/spark/spark-1.5.2/spark-1.5.2-bin-hadoop2.6.tgz ; fi
+tar -zxvf /download/spark-1.5.2-bin-hadoop2.6.tgz -C /usr/local/hadoop/
+```
+2. 修改scala环境变量 `vi /etc/profile`
+    添加如下内容:
+```
+export SCALA_HOME="/usr/local/hadoop/scala-2.10.6"
+export PATH="$PATH:$SCALA_HOME/bin"
+```
+
+    生效环境变量
 ```
 source /etc/profile
 scala -version
+# Scala code runner version 2.10.6 -- Copyright 2002-2013, LAMP/EPFL
 ```
-Scala code runner version 2.10.6 -- Copyright 2002-2013, LAMP/EPFL
+
+4. 修改spark环境变量 `vi /etc/profile`
+添加如下内容:
 ```
-3. 安装spark
-tar -zxvf spark-1.5.2-bin-hadoop2.6.tgz
-mv spark-1.5.2-bin-hadoop2.6 /usr/local/
-4. 修改spark环境变量
-vi /etc/profile
+export SPARK_HOME="/usr/local/hadoop/spark-1.5.2-bin-hadoop2.6"
+export PATH="$PATH:$SPARK_HOME/bin"
+export SPARK_CLASSPATH="$SPARK_HOME/lib/mysql-connector-java-5.1.46.jar"
 ```
-export HADOOP_CONF_DIR=$HADOOP_HOME/etc/hadoop
-export HDFS_CONF_DIR=$HADOOP_HOME/etc/hadoop
-export YARN_CONF_DIR==$HADOOP_HOME/etc/hadoop
-export SPARK_HOME=/usr/local/hadoop/spark-1.5.2-bin-hadoop2.6
-export PATH=$PATH:$SPARK_HOME/bin
-export SPARK_CLASSPATH=$SPARK_HOME/lib/mysql-connector-java-5.1.46.jar
+ 生效环境变量
 ```
-source /etc/profile <br>
+source /etc/profile
+```
+
 5. 修改spark配置文件
-cp /usr/local/spark-1.5.2-bin-hadoop2.6/conf/slaves.template /usr/local/spark-1.5.2-bin-hadoop2.6/conf/slaves
-vi /usr/local/spark-1.5.2-bin-hadoop2.6/conf/slaves
-删除localhost，将内容改为
 ```
-master
-slave
+cp $SPARK_HOME/conf/slaves.template $SPARK_HOME/conf/slaves
+vi $SPARK_HOME/conf/slaves
+```
+删除localhost，将改为如下
+```
+pxw501-25
+pxw501-26
 ```
 6. 需要将mysql的驱动程序mysql-connector-java-5.1.46.jar拷贝到spark的lib目录中
-7. 对26服务器进行以上同样操作
-8. 启动 spark
-切换到启动目录下，在master节点上运行
-cd /usr/local/hadoop/spark-1.5.2-bin-hadoop2.6/sbin
 ```
-./start-all.sh
+cp ./mysql-connector-java-5.1.46.jar $SPARK_HOME/lib/
+```
+7. 对非master节点进行以上同样操作
+8. 启动 spark
+在master节点上运行
+```
+$SPARK_HOME/sbin/start-all.sh
 sudo jps
 ```
 
 9. http 网页访问
- - [访问 Spark master http页面, http://master:8080]
+ - [访问 Spark master http页面, http://50125.hnbdata.cn:8080/](http://50125.hnbdata.cn:8080)
+ - [访问 Spark Jobs http页面, http://50125.hnbdata.cn:4040/jobs/](http://50125.hnbdata.cn:4040/jobs/)
+ - [访问 Spark作业 http页面, http://50125.hnbdata.cn:8088](http://50125.hnbdata.cn:8088)
+
 
 # 参考
 1. [scala下载 . http://downloads.lightbend.com/scala/2.10.6/scala-2.10.6.tgz)
