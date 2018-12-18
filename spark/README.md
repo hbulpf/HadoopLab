@@ -27,7 +27,7 @@ export SPARK_HOME=/usr/local/hadoop/spark-1.5.2-bin-hadoop2.6
 export PATH=$PATH:$SPARK_HOME/bin
 export SPARK_CLASSPATH=$SPARK_HOME/lib/mysql-connector-java-5.1.46.jar
 ```
-source /etc/profile
+source /etc/profile <br>
 5. 修改spark配置文件
 cp /usr/local/spark-1.5.2-bin-hadoop2.6/conf/slaves.template /usr/local/spark-1.5.2-bin-hadoop2.6/conf/slaves
 vi /usr/local/spark-1.5.2-bin-hadoop2.6/conf/slaves
