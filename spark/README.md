@@ -1,22 +1,55 @@
-# 搭建大数据系统
+# spark系统手动搭建说明
 
-环境 | 版本 
------ | ----- 
-jdk  | open-jdk-1.8.0_181-b13
-Hadoop | 2.7.7
-HBase | 2.0.2
-Spark | 1.5.2
+1. 安装scala:  
+tar -zxvf scala-2.10.6.tgz
+mv scala-2.10.6 /usr/local/
+2. 修改scala环境变量
+vi /etc/profile
+```
+export SCALA_HOME=/usr/local/hadoop/scala-2.10.6
+export PATH=$PATH:$SCALA_HOME/bin
+```
+source /etc/profile
+scala -version
+```
+Scala code runner version 2.10.6 -- Copyright 2002-2013, LAMP/EPFL
+```
+3. 安装spark
+tar -zxvf spark-1.5.2-bin-hadoop2.6.tgz
+mv spark-1.5.2-bin-hadoop2.6 /usr/local/
+4. 修改spark环境变量
+vi /etc/profile
+```
+export HADOOP_CONF_DIR=$HADOOP_HOME/etc/hadoop
+export HDFS_CONF_DIR=$HADOOP_HOME/etc/hadoop
+export YARN_CONF_DIR==$HADOOP_HOME/etc/hadoop
+export SPARK_HOME=/usr/local/hadoop/spark-1.5.2-bin-hadoop2.6
+export PATH=$PATH:$SPARK_HOME/bin
+export SPARK_CLASSPATH=$SPARK_HOME/lib/mysql-connector-java-5.1.46.jar
+```
+source /etc/profile
+5. 修改spark配置文件
+cp /usr/local/spark-1.5.2-bin-hadoop2.6/conf/slaves.template /usr/local/spark-1.5.2-bin-hadoop2.6/conf/slaves
+vi /usr/local/spark-1.5.2-bin-hadoop2.6/conf/slaves
+删除localhost，将内容改为
+```
+master
+slave
+```
+6. 需要将mysql的驱动程序mysql-connector-java-5.1.46.jar拷贝到spark的lib目录中
+7. 对26服务器进行以上同样操作
+8. 启动 spark
+切换到启动目录下，在master节点上运行
+cd /usr/local/hadoop/spark-1.5.2-bin-hadoop2.6/sbin
+```
+./start-all.sh
+sudo jps
+```
 
-服务器 | 服务角色 | 服务组件
------ | ----- | ----- 
-501-25  | hadoop master , hadoop slave ,  hbase master ,spark master,worker| NameNode , DataNode , SecondaryNameNode , NodeManager , ResourceManager
-501-26  | hadoop slave , hbase RegionServer , spark worker | DataNode , NodeManager
+9. http 网页访问
+ - [访问 Spark master http页面, http://master:8080]
 
-
-# 1. Hadoop HDFS
- 1. [hadoop系统 自动部署搭建](./hadoop_auto/)
-
-# 2. HBase
- 1. [HBase 系统 自动部署搭建](./hbase/)
-
-# 3. Spark
+# 参考
+1. [scala下载 . http://downloads.lightbend.com/scala/2.10.6/scala-2.10.6.tgz)
+2. [spark 下载 . http://archive.apache.org/dist/spark/spark-1.5.2/spark-1.5.2-bin-hadoop2.6.tgz)
+3. [spark 安装参考指南 . https://blog.csdn.net/Noob_f/article/details/53425721)
