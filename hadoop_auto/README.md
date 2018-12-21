@@ -62,8 +62,8 @@ jps
 ```
 
 6. http 网页访问
- - [访问 Hadoop NameNode http页面, http://master:50070](http://50125.hnbdata.cn:50070)
- - [访问 Hadoop ResourceManager http页面, http://master:8088](http://50125.hnbdata.cn:8088/)
+ - [访问 Hadoop NameNode http页面, http://50125.hnbdata.cn:50070](http://50125.hnbdata.cn:50070)
+ - [访问 Hadoop ResourceManager http页面, http://50125.hnbdata.cn:8088](http://50125.hnbdata.cn:8088/)
  - [访问 pxw501-26 Hadoop DataNode http页面, http://50126.hnbdata.cn:50075/](http://50126.hnbdata.cn:50075/)
  - [访问 pxw501-25 Hadoop DataNode http页面, http://50125.hnbdata.cn:50075/](http://50125.hnbdata.cn:50075/)
 
