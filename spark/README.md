@@ -18,7 +18,6 @@ tar -zxvf /download/spark-1.5.2-bin-hadoop2.6.tgz -C /usr/local/hadoop/
 export SCALA_HOME="/usr/local/hadoop/scala-2.10.6"
 export PATH="$PATH:$SCALA_HOME/bin"
 ```
-
     生效环境变量
 ```
 source /etc/profile
@@ -26,7 +25,7 @@ scala -version
 # Scala code runner version 2.10.6 -- Copyright 2002-2013, LAMP/EPFL
 ```
 
-4. 修改spark环境变量 `vi /etc/profile`
+3. 修改spark环境变量 `vi /etc/profile`
 添加如下内容:
 ```
 export SPARK_HOME="/usr/local/hadoop/spark-1.5.2-bin-hadoop2.6"
@@ -38,7 +37,7 @@ export SPARK_CLASSPATH="$SPARK_HOME/lib/mysql-connector-java-5.1.46.jar"
 source /etc/profile
 ```
 
-5. 修改spark配置文件
+4. 修改spark配置文件
 ```
 cp $SPARK_HOME/conf/slaves.template $SPARK_HOME/conf/slaves
 vi $SPARK_HOME/conf/slaves
@@ -48,19 +47,19 @@ vi $SPARK_HOME/conf/slaves
 pxw501-25
 pxw501-26
 ```
-6. 需要将mysql的驱动程序mysql-connector-java-5.1.46.jar拷贝到spark的lib目录中
+5. 需要将mysql的驱动程序mysql-connector-java-5.1.46.jar拷贝到spark的lib目录中
 ```
 cp ./mysql-connector-java-5.1.46.jar $SPARK_HOME/lib/
 ```
-7. 对非master节点进行以上同样操作
-8. 启动 spark
+6. 对非master节点进行以上同样操作
+7. 启动 spark
 在master节点上运行
 ```
 $SPARK_HOME/sbin/start-all.sh
 sudo jps
 ```
 
-9. http 网页访问
+8. http 网页访问
  - [访问 Spark master http页面, http://50125.hnbdata.cn:8080/](http://50125.hnbdata.cn:8080)
  - [访问 Spark Jobs http页面, http://50125.hnbdata.cn:4040/jobs/](http://50125.hnbdata.cn:4040/jobs/)
  - [访问 Spark作业 http页面, http://50125.hnbdata.cn:8088](http://50125.hnbdata.cn:8088)
