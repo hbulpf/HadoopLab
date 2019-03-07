@@ -9,8 +9,8 @@ tar -zxvf /download/scala-2.10.6.tgz -C /usr/local/hadoop/
 
     下载安装spark:
 ```
-if [ ! -f /download/spark-1.5.2-bin-hadoop2.6.tgz ]; then wget -O /download/spark-1.5.2-bin-hadoop2.6.tgz http://archive.apache.org/dist/spark/spark-1.5.2/spark-1.5.2-bin-hadoop2.6.tgz ; fi
-tar -zxvf /download/spark-1.5.2-bin-hadoop2.6.tgz -C /usr/local/hadoop/
+if [ ! -f /download/spark-2.1.0-bin-hadoop2.7.tgz ]; then wget -O /download/spark-2.1.0-bin-hadoop2.7.tgz http://archive.apache.org/dist/spark/spark-1.5.2/spark-2.1.0-bin-hadoop2.7.tgz ; fi
+tar -zxvf /download/spark-2.1.0-bin-hadoop2.7.tgz -C /usr/local/hadoop/
 ```
 2. 修改scala环境变量 `vi /etc/profile`
     添加如下内容:
@@ -66,6 +66,6 @@ sudo jps
 
 
 # 参考
-1. [scala下载 . http://downloads.lightbend.com/scala/2.10.6/scala-2.10.6.tgz)
-2. [spark 下载 . http://archive.apache.org/dist/spark/spark-1.5.2/spark-1.5.2-bin-hadoop2.6.tgz)
-3. [spark 安装参考指南 . https://blog.csdn.net/Noob_f/article/details/53425721)
+1. scala下载 . http://downloads.lightbend.com/scala/2.10.6/scala-2.10.6.tgz
+2. spark 下载 . http://archive.apache.org/dist/spark/spark-1.5.2/spark-2.1.0-bin-hadoop2.7.tgz
+3. spark 安装参考指南 . https://blog.csdn.net/Noob_f/article/details/53425721
