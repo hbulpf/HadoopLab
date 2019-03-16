@@ -1,20 +1,20 @@
 # 安装 SBT
 
 ## 服务器已有SBT包安装方式
-服务器文件 `/501_raid_common/developer/hadoop/spark/sbt_for_25_26.tar.gz` 压缩包有已经修改并编译好后的:
+服务器文件 `/501_raid_common/developer/hadoop/spark/sbt-1.2.8.tgz` 压缩包有已经修改并编译好后的:
 - sbt : sbt启动脚本
 - sbt-launch.jar : sbt 启动jar包
  
 
 1. 使用时可直接将该包解压到 `/usr/local` 目录
 ```
-tar -xzvf /501_raid_common/developer/hadoop/spark/sbt_for_25_26.tar.gz -C /usr/local
+tar -xzvf /501_raid_common/developer/hadoop/spark/sbt-1.2.8.tgz -C /usr/local
 ```
 
 1. 添加 sbt 环境变量 `vi /etc/profile` , 加入以下环境变量
 ```
 export SBT="/usr/local/sbt"
-export PATH="$PATH:$SBT"
+export PATH="$PATH:$SBT_HOME/bin"
 ```
 
 1. 生效 sbt 环境变量
