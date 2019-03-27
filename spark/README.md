@@ -47,6 +47,35 @@ vi $SPARK_HOME/conf/slaves
 pxw501-25
 pxw501-26
 ```
+
+```
+cp $SPARK_HOME/conf/spark-env.sh.template $SPARK_HOME/conf/spark-env.sh
+vi $SPARK_HOME/conf/spark-env.sh
+```
+在后面加上这些配置
+```
+export JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.191.b12-1.el7_6.x86_64
+export SCALA_HOME=/usr/local/hadoop/scala-2.11.8
+export HADOOP_HOME=/usr/local/hadoop/hadoop-2.7.7
+export HADOOP_CONF_DIR=${HADOOP_HOME}/etc/hadoop
+export SPARK_MASTER_IP=pxw501-25
+export SPARK_WORKER_MEMORY=4g
+export SPARK_WORKER_CORES=2
+export SPARK_WORKER_INSTANCES=1
+export SPARK_WORKER_DIR=/data/hd2.7/spark/worker
+```
+参数解释
+- JAVA_HOME：Java安装目录
+- SCALA_HOME：Scala安装目录
+- HADOOP_HOME：hadoop安装目录
+- HADOOP_CONF_DIR：hadoop集群的配置文件的目录
+- SPARK_MASTER_IP：spark集群的Master节点的ip地址
+- SPARK_WORKER_MEMORY：每个worker节点能够最大分配给exectors的内存大小
+- SPARK_WORKER_CORES：每个worker节点所占有的CPU核数目
+- SPARK_WORKER_INSTANCES：每台机器上开启的worker节点的数目
+
+**注意**：25,26服务器的 JAVA_HOME 不同
+
 5. 需要将mysql的驱动程序mysql-connector-java-5.1.46.jar拷贝到spark的lib目录中
 ```
 cp ./mysql-connector-java-5.1.46.jar $SPARK_HOME/lib/

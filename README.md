@@ -12,6 +12,7 @@ Spark | 1.5.2
 501-25  | Hadoop master , Hadoop slave <br>  HBase master <br>  Spark master, Spark worker| NameNode , DataNode , SecondaryNameNode , NodeManager , ResourceManager
 501-26  | Hadoop slave <br> HBase RegionServer <br>  Spark worker | DataNode , NodeManager
 
+![hadoop_arch.png](./pics/hadoop_arch.png)
 
 # 1. Hadoop 
  1. [Hadoop 自动部署搭建](./hadoop_auto/)
