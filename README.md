@@ -9,8 +9,8 @@ Spark | 1.5.2
 
 服务器 | 服务角色 | 服务组件
 ----- | ----- | ----- 
-501-25  | Hadoop master , Hadoop slave <br>  HBase master <br>  Spark master, Spark worker| NameNode , DataNode , SecondaryNameNode , NodeManager , ResourceManager
-501-26  | Hadoop slave <br> HBase RegionServer <br>  Spark worker | DataNode , NodeManager
+节点1  | Hadoop master , Hadoop slave <br>  HBase master <br>  Spark master, Spark worker| NameNode , DataNode , SecondaryNameNode , NodeManager , ResourceManager
+节点2   | Hadoop slave <br> HBase RegionServer <br>  Spark worker | DataNode , NodeManager
 
 ![hadoop_arch.png](./pics/hadoop_arch.png)
 
