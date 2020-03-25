@@ -1,4 +1,11 @@
-# 搭建大数据系统
+# 大数据实验室
+
+[![知识共享协议（CC协议）](https://img.shields.io/badge/License-Creative%20Commons-DC3D24.svg)](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)
+[![GitHub stars](https://img.shields.io/github/stars/hbulpf/HadoopLab.svg?label=Stars)](https://github.com/hbulpf/HadoopLab)
+[![GitHub watchers](https://img.shields.io/github/watchers/hbulpf/HadoopLab.svg?label=Watchers)](https://github.com/hbulpf/HadoopLab/watchers)
+[![GitHub forks](https://img.shields.io/github/forks/hbulpf/HadoopLab.svg?label=Forks)](https://github.com/hbulpf/HadoopLab/fork)
+
+# 大数据系统规划
 
 环境 | 版本 
 ----- | ----- 
@@ -14,14 +21,13 @@ Spark | 1.5.2
 
 ![hadoop_arch.png](./pics/hadoop_arch.png)
 
-# 1. Hadoop 
- 1. [Hadoop 自动部署搭建](./hadoop_auto/)
+# 搭建Hadoop系统
 
-# 2. HBase
- 1. [HBase 系统 自动部署搭建](./hbase/)
+1. [Hadoop 自动部署搭建](./hadoop_auto/)
 
-# 3. Spark
- 1. [Spark 系统 部署搭建](./spark/)
+2. [HBase 系统 自动部署搭建](./hbase/)
+
+3. [Spark 系统 部署搭建](./spark/)
 
 
 
